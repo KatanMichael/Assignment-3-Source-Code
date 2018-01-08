@@ -18,26 +18,26 @@ mov cx, [bx]
 mov bx,[bp+6]
 mov dx,[bx]
 
-mov ax,dx
+mov ax,bx
 inc bx
 inc bx    
 dec cx
-mov dx,[bx]    
+    
 lop:
     
-    cmp ax,dx
+    cmp dx,[bx]
     jb update
-    inc bx
-    inc bx
     mov dx,[bx]
+    inc bx
+    inc bx
     loop lop
     jmp ex
     
 update:
-    mov ax,dx
-    inc bx
-    inc bx
+    mov ax,bx
     mov dx,[bx]
+    inc bx
+    inc bx
     loop lop
         
 ex:
