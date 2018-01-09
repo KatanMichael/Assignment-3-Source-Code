@@ -21,6 +21,11 @@ findChar proc
     lop:
         cmp cl,[bx]
         je ex
+        
+        cmp cl,0
+        jmp ex1
+        
+        
         inc ax
         inc bx
         jmp lop
@@ -30,6 +35,13 @@ findChar proc
         inc ax
         pop bp
         ret 4
+        
+    ex1:
+    mov ax,-1
+    pop bp
+    ret 4
+        findChar endp
+        
 
 main:
 mov ax, @DATA
